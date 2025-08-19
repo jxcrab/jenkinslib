@@ -10,7 +10,7 @@ String workspace = "/opt/jenkins/workspace"
 
 //Pipeline
 pipeline {
-    agent { node {  label "master"   //指定运行节点的标签或者名称
+    agent { node {  label 'master'   //指定运行节点的标签或者名称
                     customWorkspace "${workspace}"   //指定运行工作目录（可选）
             }
     }
@@ -50,7 +50,7 @@ pipeline {
                             script{
                                 println('应用打包')
                                 tools.PrintMes("应用打包",'green')
-                                mvnHome = tool "m2"
+                                mvnHome = tool "maven-3.6.3"
                                 println(mvnHome)
                                 
                                 sh "${mvnHome}/bin/mvn --version"
